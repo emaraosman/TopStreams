@@ -5,7 +5,7 @@ A stream aggregator that targets streams based on popularity accross streaming p
 
 Wireframe
 
-![]topStreamsWireframe.png
+[!]topStreamsWireframe.png
 
 The app structure should be fairly simple, 2 pages or less for any user. This app will definitely be heavy on the backend of development, and front end should be kept simple but effective in display.
 
