@@ -1,10 +1,13 @@
 require('isomorphic-fetch')
 require('dotenv').config()
 
+
+
 function getTwitchApi(req, res, next) {
   fetch(`https://api.twitch.tv/kraken/streams/?client_id=${process.env.client_id}&client_secret=${process.env.client_secret}`)
     .then(fetchRes => fetchRes.json())
     .then(jsonFetchRes => {
+      // console.log(jsonFetchRes)
       res.locals.streams = jsonFetchRes;
       next()
     })
@@ -14,5 +17,5 @@ function getTwitchApi(req, res, next) {
 
 
 module.exports = {
-  getTwitchApi : getTwitchApi
+  getTwitchApi : getTwitchApi,
 }

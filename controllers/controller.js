@@ -1,17 +1,18 @@
 //DONT FORGET TO require MODEL
-
+const halpers = require('../halp.js')
 const streamController = {};
 
-twitchController.sendApiTwitch = (req, res) => {
+streamController.getTwitchApi = (req, res) => {
   res.json({
-    message:"ok",
-    data: res.local.streams,
+    message: "ok",
+    streams: res.locals.streams,
   })
+
 }
 
 
 
 
-
+module.exports = streamController
 
 //

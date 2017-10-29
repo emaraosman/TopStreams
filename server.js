@@ -28,14 +28,18 @@ app.listen(port,()=>{
   console.log(`ready on ${port}`)
 })
 
-app.get('/',(req,res)=>{
-  //res.render('view/path')
-
-  res.send('hello from the server')
-  res.send(getTwitchApi)
-})
-
 //route requires
+const streamRouter = require('./routes/route.js')
+app.use('/', streamRouter)
+
+// app.get('/',(req,res)=>{
+//   //res.render('view/path')
+//
+//   res.send('hello from the server')
+//   res.send(getTwitchApi)
+// })
+
+
 
 
 //catchall
