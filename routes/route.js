@@ -6,5 +6,9 @@ const halpers = require('../halp.js')
 
 streamRouter.get('/', halpers.getTwitchApi, streamController.getTwitchApi);
 
+streamRouter.get('/go', streamController.index)
+
+
+
 
 module.exports = streamRouter;

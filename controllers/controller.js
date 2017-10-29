@@ -10,6 +10,10 @@ streamController.getTwitchApi = (req, res) => {
 
 }
 
+streamController.index = (req, res) => {
+  res.render('../views/index.ejs')
+}
+
 
 
 
