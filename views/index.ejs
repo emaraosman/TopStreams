@@ -28,7 +28,24 @@
     <h4 class="inline"> <%= twitch.streams[i].game %></h4>
     <h3 class="viewercount inline"><%= twitch.streams[i].viewers %></h3>
     <br>
-    <img class="twitchpreviews" src="<%= twitch.streams[i].preview.medium%>" alt="">
+    <img class="previews" src="<%= twitch.streams[i].preview.medium%>" alt="">
+
+  </div>
+  <br>
+
+
+    <%}%>
+
+    <% for(i=0; i<10; i++) {%>
+
+  <div>
+
+    <h3 class="inline"><%= youtube.items[i].snippet.channelTitle  %></h3></a>
+    <br>
+    <h4 class="inline"> <%= youtube.items[i].snippet.title %></h4>
+    <h3 class="viewercount inline">unknown</h3>
+    <br>
+    <img class="previews" src="<%= youtube.items[i].snippet.medium %>" alt="">
 
   </div>
   <br>

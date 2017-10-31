@@ -19,6 +19,7 @@ streamController.getYouTubeApi = (req, res) =>{
 streamController.index = (req, res) => {
     res.render('../views/index.ejs',{
       twitch:res.locals.streams,
+      youtube:res.locals.streams2,
     })
   }
 

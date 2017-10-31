@@ -19,7 +19,8 @@ function getYouTubeApi(req, res, next) {
   fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&eventType=live&type=video&regionCode=US&order=viewcount&maxResults=10&key=${process.env.ytkey}`)
   .then(fetchRes => fetchRes.json())
   .then(jsonFetchRes => {
-    res.locals.streams = jsonFetchRes;
+    // console.log(jsonFetchRes)
+    res.locals.streams2 = jsonFetchRes;
     data = jsonFetchRes;
     next()
   })
@@ -31,4 +32,5 @@ function getYouTubeApi(req, res, next) {
 
 module.exports = {
   getTwitchApi : getTwitchApi,
+  getYouTubeApi : getYouTubeApi,
 }
