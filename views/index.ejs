@@ -10,8 +10,30 @@
   <title>Top Streams</title>
 </head>
 <body>
-  index page rendered from controller and route on /go
-  <!-- <script src='/src/main.js'></script> -->
 
+  <header>Top Streams</header>
+  <br>
+  <br>
+  <p>index page rendered from controller and route on /go<p>
+
+
+    <% for(i=0; i<10; i++) {%>
+
+  <div>
+    <a href="https://go.twitch.tv/<%=twitch.streams[i].channel.display_name%>" target="_blank">
+    <img class="twitchlogos" src="<%= twitch.streams[i].channel.logo %>" alt="">
+
+    <h3 class="inline"><%= twitch.streams[i].channel.display_name %></h3></a>
+    <br>
+    <h4 class="inline"> <%= twitch.streams[i].game %></h4>
+    <h3 class="viewercount inline"><%= twitch.streams[i].viewers %></h3>
+    <br>
+    <img class="twitchpreviews" src="<%= twitch.streams[i].preview.medium%>" alt="">
+
+  </div>
+  <br>
+
+
+    <%}%>
 </body>
 </html>
