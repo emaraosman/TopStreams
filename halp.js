@@ -1,6 +1,6 @@
 require('isomorphic-fetch')
 require('dotenv').config()
-
+const db = require('./db/config')
 
 
 function getTwitchApi(req, res, next) {
@@ -9,6 +9,27 @@ function getTwitchApi(req, res, next) {
     .then(jsonFetchRes => {
       // console.log(jsonFetchRes)
       res.locals.streams = jsonFetchRes;
+
+
+      for(i=0; i<10; i++){
+        let streamIdCatcher = jsonFetchRes.streams[i].channel._id
+        let streamNameCatcher = jsonFetchRes.streams[i].channel.display_name
+
+        console.log(streamIdCatcher, streamNameCatcher)
+
+        db.query(`
+          INSERT INTO ratings_table (
+            streamer_id,
+            channel_name
+          ) VALUES (
+            ${streamIdCatcher},
+            '${streamNameCatcher}'
+          ) ON CONFLICT DO NOTHING
+          RETURNING *
+          `)
+      }
+
+      // db.query(`INSERT INTO`)
       data = jsonFetchRes;
       next()
     })
@@ -21,6 +42,7 @@ function getYouTubeApi(req, res, next) {
   .then(jsonFetchRes => {
     // console.log(jsonFetchRes)
     res.locals.streams2 = jsonFetchRes;
+
     data = jsonFetchRes;
     next()
   })

@@ -30,6 +30,8 @@
     <br>
     <img class="previews" src="<%= twitch.streams[i].preview.medium%>" alt="">
 
+      <input type="submit" value="like" id="<%=twitch.streams[i].channel._id%">
+
   </div>
   <br>
 
@@ -39,7 +41,7 @@
     <% for(i=0; i<10; i++) {%>
 
   <div>
-
+    <a href="https://www.youtube.com/watch?v=<%=youtube.items[i].id.videoId%>" target="_blank">
     <h3 class="inline"><%= youtube.items[i].snippet.channelTitle  %></h3></a>
     <br>
     <h4 class="inline"> <%= youtube.items[i].snippet.title %></h4>
