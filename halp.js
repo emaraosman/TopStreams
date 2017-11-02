@@ -22,11 +22,11 @@ function getTwitchApi(req, res, next) {
             streamer_id,
             channel_name
           ) VALUES (
-            ${streamIdCatcher},
-            '${streamNameCatcher}'
+            $1,
+            $2
           ) ON CONFLICT DO NOTHING
           RETURNING *
-          `)
+          `, [streamIdCatcher, streamNameCatcher])
       }
 
       // db.query(`INSERT INTO`)
@@ -51,15 +51,15 @@ function getYouTubeApi(req, res, next) {
         console.log(streamIdCatcher, streamNameCatcher)
 
         db.query(`
-          INSERT INTO ratings_table (
+          INSERT INTO youtube_ratings_table (
             streamer_id,
             channel_name
           ) VALUES (
-            ${streamIdCatcher},
-            '${streamNameCatcher}'
+            $1,
+            $2
           ) ON CONFLICT DO NOTHING
           RETURNING *
-          `)
+          `,[streamIdCatcher, streamNameCatcher])
       }
 
     data = jsonFetchRes;

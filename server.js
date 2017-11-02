@@ -20,8 +20,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //views config
+app.set('view engine','ejs')
 app.set('views', path.join(__dirname,'views'))
-app.set('views engine','ejs')
+
 
 //config port
 const port = process.env.PORT || 3000;

@@ -18,13 +18,10 @@ streamController.getYouTubeApi = (req, res) => {
 }
 
 streamController.index = (req, res) => {
-      res.render('../views/index.ejs', {
+      res.render('index', {
         twitch: res.locals.streams,
         youtube: res.locals.streams2,
-      }).catch(err => {
-      console.log(err)
-      res.status(500).json(err);
-    })
+      })
 }
 
 streamController.updateLikes = (req, res) => {
