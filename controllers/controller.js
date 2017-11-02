@@ -30,7 +30,7 @@ streamController.index = (req, res) => {
 streamController.updateLikes = (req, res) => {
   streamModels.updateLikes(req.body.streamer_id)
     .then(
-      res.redirect('/go')
+      res.redirect('/')
     )
 }
 
@@ -42,7 +42,7 @@ streamController.updateDislikes = (req, res) => {
         update: update
       })
     })
-    .then(res.redirect('/go'))
+    .then(res.redirect('/'))
 
 }
 
@@ -50,7 +50,7 @@ streamController.updateDislikes = (req, res) => {
 streamController.updateYLikes = (req, res) => {
   streamModels.updateYLikes(req.body.streamer_id)
     .then(
-      res.redirect('/go')
+      res.redirect('/')
     )
 }
 
@@ -62,7 +62,7 @@ streamController.updateYDislikes = (req, res) => {
         update: update
       })
     })
-    .then(res.redirect('/go'))
+    .then(res.redirect('/'))
 
 }
 

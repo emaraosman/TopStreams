@@ -8,15 +8,15 @@ streamRouter.get('/twitchdata', halpers.getTwitchApi, streamController.getTwitch
 
 streamRouter.get('/youtubedata', halpers.getYouTubeApi, streamController.getYouTubeApi)
 
-streamRouter.get('/go', halpers.getTwitchApi, halpers.getYouTubeApi, streamController.index)
+streamRouter.get('/', halpers.getTwitchApi, halpers.getYouTubeApi, streamController.index)
 
-streamRouter.put('/go/:id/likes', streamController.updateLikes);
+streamRouter.put('/:id/likes', streamController.updateLikes);
 
-streamRouter.put('/go/:id/dislikes', streamController.updateDislikes);
+streamRouter.put('/:id/dislikes', streamController.updateDislikes);
 
-streamRouter.put('/go/:id/likes', streamController.updateYLikes);
+streamRouter.put('/:id/likes', streamController.updateYLikes);
 
-streamRouter.put('/go/:id/dislikes', streamController.updateYDislikes);
+streamRouter.put('/:id/dislikes', streamController.updateYDislikes);
 
 
 module.exports = streamRouter;
