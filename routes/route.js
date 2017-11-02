@@ -10,7 +10,9 @@ streamRouter.get('/youtubedata', halpers.getYouTubeApi, streamController.getYouT
 
 streamRouter.get('/go', halpers.getTwitchApi, halpers.getYouTubeApi, streamController.index)
 
-streamRouter.put('/go/:id/like', streamController.updateLike);
+streamRouter.put('/go/:id/likes', streamController.updateLikes);
+
+streamRouter.put('/go/:id/dislikes', streamController.updateDislikes);
 
 
 

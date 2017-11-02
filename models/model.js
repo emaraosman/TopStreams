@@ -4,19 +4,25 @@ const halpers = require('../halp.js')
 
 const streamModels = {}
 
-// streamModels.findAll = () => db.query('SELECT * FROM todo_table')
+// streamModels.findAll = () => db.query('SELECT * FROM ratings_table')
 //
-// streamModels.findById = id => db.one ('SELECT * FROM ratings_table WHERE id = $1',[id])
+streamModels.findById = id => db.one (`SELECT * FROM ratings_table WHERE streamer_id = $1`,[id])
 
-streamModels.updateLike = (like, id) => {
+streamModels.updateLikes = (id) => {
   return db.one(`
   UPDATE ratings_table SET
-  like = $1
-  WHERE id = $2
-  RETURNING *`, [like.like , id]
+  likes = likes + 1
+  WHERE streamer_id = $1
+  RETURNING *`, [id]
 )};
 
-
+streamModels.updateDislikes = (id) => {
+  return db.one(`
+  UPDATE ratings_table SET
+  likes = likes - 1
+  WHERE streamer_id = $1
+  RETURNING *`, [id]
+)};
 
 
 

@@ -14,7 +14,7 @@
   <header>Top Streams</header>
   <br>
   <br>
-  <p>index page rendered from controller and route on /go<p>
+
 
 
     <% for(i=0; i<10; i++) {%>
@@ -30,7 +30,17 @@
     <br>
     <img class="previews" src="<%= twitch.streams[i].preview.medium%>" alt="">
 
-      <input type="submit" value="like" id="<%=twitch.streams[i].channel._id%">
+    <form action="go/<%=twitch.streams[i].channel._id%>/likes?_method=PUT" method="POST">
+      <input type="hidden" name="streamer_id" value="<%=twitch.streams[i].channel._id%>">
+      <input type="submit" value="like" id="<%=twitch.streams[i].channel._id%>">
+    </form>
+
+    <form action="go/<%=twitch.streams[i].channel._id%>/dislikes?_method=PUT" method="POST">
+      <input type="hidden" name="streamer_id" value="<%=twitch.streams[i].channel._id%>">
+      <input type="submit" value="dislike" id="<%=twitch.streams[i].channel._id%>">
+    </form>
+
+  <div> this is the: <%= streams.likes %> </div>
 
   </div>
   <br>
