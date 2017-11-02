@@ -13,23 +13,18 @@ streamController.getTwitchApi = (req, res) => {
 streamController.getYouTubeApi = (req, res) => {
   res.json({
     message: 'ok',
-    streams: res.locals.streams,
+    streams: res.locals.streams2,
   })
 }
 
 streamController.index = (req, res) => {
-  streamModels.findById(req.body.streamer_id)
-  .then(streams => {
-    console.log(streams)
-    res.render('../views/index.ejs', {
-      twitch: res.locals.streams,
-      youtube: res.locals.streams2,
-      streams: streams,
-  })
-}).catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  })
+      res.render('../views/index.ejs', {
+        twitch: res.locals.streams,
+        youtube: res.locals.streams2,
+      }).catch(err => {
+      console.log(err)
+      res.status(500).json(err);
+    })
 }
 
 streamController.updateLikes = (req, res) => {
@@ -52,22 +47,24 @@ streamController.updateDislikes = (req, res) => {
 }
 
 
-// streamController.updateLikes = (req, res) => {
-//   //   event.preventDefault()
-//
-//     streamModels.updateLikes(req.body.streamer_id)
-//       .then(update => {
-//         res.json({
-//           msg: 'ok',
-//         })
-//         .then(
-//           res.redirect('../views/index.ejs')
-//         )
-//       }).catch(err =>{
-//         console.log(err)
-//       })
-//   }
+streamController.updateYLikes = (req, res) => {
+  streamModels.updateYLikes(req.body.streamer_id)
+    .then(
+      res.redirect('/go')
+    )
+}
 
+streamController.updateYDislikes = (req, res) => {
+  streamModels.updateYDislikes(req.body.streamer_id)
+    .then(update =>{
+      res.json({
+        msg:'ok',
+        update: update
+      })
+    })
+    .then(res.redirect('/go'))
+
+}
 
 
 

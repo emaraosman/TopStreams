@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="assets/scripts/jquery.js"></script>
   <script src="assets/scripts/main.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Text+Me+One" rel="stylesheet">
+
 
   <link rel="stylesheet" href="assets/stylesheets/main.css"/>
   <title>Top Streams</title>
@@ -15,13 +17,15 @@
   <br>
   <br>
 
+<div class="container">
 
 
+  <section class="twitch-container">
     <% for(i=0; i<10; i++) {%>
 
   <div>
     <a href="https://go.twitch.tv/<%=twitch.streams[i].channel.display_name%>" target="_blank">
-    <img class="twitchlogos" src="<%= twitch.streams[i].channel.logo %>" alt="">
+    <img class="logos" src="<%= twitch.streams[i].channel.logo %>" alt="">
 
     <h3 class="inline"><%= twitch.streams[i].channel.display_name %></h3></a>
     <br>
@@ -40,29 +44,53 @@
       <input type="submit" value="dislike" id="<%=twitch.streams[i].channel._id%>">
     </form>
 
-  <div> this is the: <%= streams.likes %> </div>
+
+  <!-- <div> this is the: <%= streams.likes %> </div> -->
+
 
   </div>
   <br>
 
 
     <%}%>
+
+
+</section>
+
+
+<section class="youtube-container">
 
     <% for(i=0; i<10; i++) {%>
 
   <div>
+        <h3 class="viewercount inline"><%=i+1%></h3>
     <a href="https://www.youtube.com/watch?v=<%=youtube.items[i].id.videoId%>" target="_blank">
     <h3 class="inline"><%= youtube.items[i].snippet.channelTitle  %></h3></a>
+
     <br>
     <h4 class="inline"> <%= youtube.items[i].snippet.title %></h4>
-    <h3 class="viewercount inline">unknown</h3>
-    <br>
-    <img class="previews" src="<%= youtube.items[i].snippet.medium %>" alt="">
 
+    <br>
+    <img class="previews" src="<%= youtube.items[i].snippet.thumbnails.medium.url %>" alt="">
   </div>
-  <br>
+
+
+  <form action="go/<%=youtube.items[i].snippet.channelId%>/likes?_method=PUT" method="POST">
+    <input type="hidden" name="streamer_id" value="<%=youtube.items[i].snippet.channelId%>">
+    <input type="submit" value="like" id="<%=youtube.items[i].snippet.channelId%>">
+  </form>
+
+  <form action="go/<%=youtube.items[i].snippet.channelId%>/dislikes?_method=PUT" method="POST">
+    <input type="hidden" name="streamer_id" value="<%=youtube.items[i].snippet.channelId%>">
+    <input type="submit" value="dislike" id="<%=youtube.items[i].snippet.channelId%>">
+  </form>
 
 
     <%}%>
+</section>
+<!-- streamcontainter div ends here -->
+</div>
+
+
 </body>
 </html>

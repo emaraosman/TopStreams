@@ -43,6 +43,25 @@ function getYouTubeApi(req, res, next) {
     // console.log(jsonFetchRes)
     res.locals.streams2 = jsonFetchRes;
 
+
+      for(i=0; i<10; i++){
+        let streamIdCatcher = jsonFetchRes.items[i].snippet.channelId
+        let streamNameCatcher = jsonFetchRes.items[i].snippet.channelTitle
+
+        console.log(streamIdCatcher, streamNameCatcher)
+
+        db.query(`
+          INSERT INTO ratings_table (
+            streamer_id,
+            channel_name
+          ) VALUES (
+            ${streamIdCatcher},
+            '${streamNameCatcher}'
+          ) ON CONFLICT DO NOTHING
+          RETURNING *
+          `)
+      }
+
     data = jsonFetchRes;
     next()
   })

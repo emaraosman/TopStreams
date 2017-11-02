@@ -14,6 +14,9 @@ streamRouter.put('/go/:id/likes', streamController.updateLikes);
 
 streamRouter.put('/go/:id/dislikes', streamController.updateDislikes);
 
+streamRouter.put('/go/:id/likes', streamController.updateYLikes);
+
+streamRouter.put('/go/:id/dislikes', streamController.updateYDislikes);
 
 
 module.exports = streamRouter;

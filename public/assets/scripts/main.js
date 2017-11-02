@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $('body').css({"background-color":"rgb(66, 91, 214)"})
+  // $('body').css({"background-color":"rgb(34, 54, 86)"})
 
 
   console.log("jquery is working")

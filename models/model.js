@@ -6,7 +6,7 @@ const streamModels = {}
 
 // streamModels.findAll = () => db.query('SELECT * FROM ratings_table')
 //
-streamModels.findById = id => db.one (`SELECT * FROM ratings_table WHERE streamer_id = $1`,[id])
+// streamModels.findById = id => db.one (`SELECT * FROM ratings_table WHERE streamer_id = $1`,[id])
 
 streamModels.updateLikes = (id) => {
   return db.one(`
@@ -24,6 +24,22 @@ streamModels.updateDislikes = (id) => {
   RETURNING *`, [id]
 )};
 
+
+streamModels.updateYLikes = (id) => {
+  return db.one(`
+  UPDATE youtube_ratings_table SET
+  likes = likes + 1
+  WHERE streamer_id = $1
+  RETURNING *`, [id]
+)};
+
+streamModels.updateYDislikes = (id) => {
+  return db.one(`
+  UPDATE youtube_ratings_table SET
+  likes = likes - 1
+  WHERE streamer_id = $1
+  RETURNING *`, [id]
+)};
 
 
 

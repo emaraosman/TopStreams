@@ -10,7 +10,10 @@ body{
 
 
 body{
-  background-color: beige;
+  color: white;
+  font-family: "Text Me One";
+  background-image: linear-gradient(to bottom, #003D57 0%, #267A94 140%);
+
 }
 
 header{
@@ -19,7 +22,7 @@ header{
   font-size: 45px;
 }
 
-.twitchlogos {
+.logos {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -33,9 +36,20 @@ header{
   display: inline;
 }
 
+.container {
+  display: flex;
+  justify-content: space-around;
+}
 
+.twitch-container{
+  flex:1;
+  justify-content: center;
+}
 
-
+.youtube-container{
+  flex:1;
+  justify-content: center;
+}
 
 
 
