@@ -32,8 +32,9 @@ function getTwitchApi(req, res, next) {
       // db.query(`INSERT INTO`)
       data = jsonFetchRes;
       next()
-    })
-
+    }).catch(err =>{
+      res.json({err})
+  })
 }
 
 function getYouTubeApi(req, res, next) {
@@ -64,7 +65,10 @@ function getYouTubeApi(req, res, next) {
 
     data = jsonFetchRes;
     next()
+  }).catch(err =>{
+    res.json({err})
   })
+
 }
 
 
