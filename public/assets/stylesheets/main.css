@@ -19,7 +19,9 @@ body{
 header{
   display: flex;
   justify-content: center;
-  font-size: 45px;
+  font-size: 65px;
+  font-weight: 800px;
+  text-shadow: 2px 2px black;
 }
 
 .logos {
@@ -44,13 +46,56 @@ header{
 .twitch-container{
   flex:1;
   justify-content: center;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .youtube-container{
   flex:1;
   justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+
 }
 
+.twitch-card{
+  justify-content: center;
+  border: 4px solid white;
 
+}
 
+.youtube-card{
+  padding-top: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+form{
+  display: inline;
+}
+
+a{
+color: white;
+background-color: rgb(66, 161, 244);
+padding: 10px;
+border-radius: 14px;
+border: 2px solid black;
+}
+
+#twitch-header {
+  font-size: 30px;
+  background-color: purple;
+  padding: 30px;
+}
+
+#youtube-header{
+  font-size: 30px;
+  background-color: red;
+  padding: 30px;
+}
+
+.previews{
+  border: 4px solid black;
+  border-radius: 10px;
+}
 /**/
